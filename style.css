@@ -1,0 +1,183 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  /* Background image */
+  background: url(./currency-wallpaper.jpg) no-repeat center center/cover;
+
+  position: relative;
+}
+
+/* Gradient overlay on top of background image */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  opacity: 0.7;  /* Adjust transparency */
+  z-index: 0;
+}
+
+/* Container with gradient background instead of white */
+.container {
+  position: relative;
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 100%;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 26px;
+}
+
+/* Amount Input */
+.amount p {
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.amount input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.amount input:focus {
+  border-color: #4ca1af;
+  outline: none;
+}
+
+/* Dropdown Section */
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.dropdown .from,
+.dropdown .to {
+  flex: 1 1 45%;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+  background-color: #f9f9f9;
+}
+
+.select-container img {
+  width: 40px;
+  height: 30px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.select-container select {
+  flex: 1;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  outline: none;
+  appearance: none;
+}
+
+/* Swap Button */
+.swap-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #444;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap-btn:hover {
+  transform: rotate(180deg);
+  color: #000;
+  opacity: 0.9;
+}
+
+/* Exchange Message */
+.msg {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Submit Button */
+form button {
+  width: 100%;
+  background-color: #4ca1af;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #3a8a9e;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .container {
+    padding: 25px 20px;
+  }
+
+  .dropdown {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dropdown .from,
+  .dropdown .to {
+    width: 100%;
+  }
+
+  .swap-btn {
+    margin: 10px auto;
+    transform: none !important;
+  }
+}
